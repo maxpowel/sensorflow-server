@@ -1,0 +1,10 @@
+mapped-config==1.1
+Inject==3.3.1
+sensorflow==1.1
+requests==2.11.1
+APScheduler==3.2.0
+
+# Bundle dependencies
+-r entity_manager/requirements.txt
+-r rest_api/requirements.txt
+-r serializer/requirements.txt

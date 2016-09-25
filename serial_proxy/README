@@ -1,0 +1,1 @@
+protoc -I=../../atom/nukebox/src/proto --python3_out=. ../../atom/nukebox/src/proto/command.proto

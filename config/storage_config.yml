@@ -1,0 +1,11 @@
+entity_manager:
+  driver: "mysql+pymysql"
+  username: {database_username}
+  password: {database_password}
+  hostname: {database_hostname}
+  port: {database_port}
+  database: {database_name}
+
+#serial_api:
+#    port: {serial_port}
+#    speed: {serial_speed}

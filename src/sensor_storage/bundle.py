@@ -1,0 +1,2 @@
+class SensorStorageBundle(object):
+    pass
