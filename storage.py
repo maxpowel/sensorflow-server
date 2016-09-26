@@ -1,6 +1,7 @@
 import inject
 import requests
 import json
+import datetime
 
 from kernel import Environments, Kernel
 from bundles.entity_manager.bundle import EntityManagerBundle
@@ -12,7 +13,7 @@ def tick():
     payload = json.loads(r.text)
     with open("data.csv", "a") as myfile:
         for sensor in payload["data"]:
-            myfile.write(",".join([str(sensor["name"]), str(sensor["value"]), str(sensor["quantity"])]))
+            myfile.write(",".join([str(datetime.datetime.now()), str(sensor["name"]), str(sensor["value"]), str(sensor["quantity"])]))
             myfile.write("\n")
 
 class AppKernel(Kernel):
