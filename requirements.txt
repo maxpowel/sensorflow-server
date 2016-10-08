@@ -5,6 +5,7 @@ requests==2.11.1
 APScheduler==3.2.0
 
 # Bundle dependencies
--r entity_manager/requirements.txt
--r rest_api/requirements.txt
+-r bundles/entity_manager/requirements.txt
+-r bundles/rest_api/requirements.txt
 -r serializer/requirements.txt
+-r src/sensor_storage/requirements.txt

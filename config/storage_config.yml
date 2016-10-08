@@ -1,5 +1,6 @@
 entity_manager:
-  driver: "mysql+pymysql"
+  #driver: "mysql+pymysql"
+  driver: sqlite:///database.db
   username: {database_username}
   password: {database_password}
   hostname: {database_hostname}
@@ -9,3 +10,6 @@ entity_manager:
 #serial_api:
 #    port: {serial_port}
 #    speed: {serial_speed}
+
+rest_api:
+    port: 3003

@@ -1,12 +1,12 @@
 from flask import Blueprint, jsonify
 
 index_blueprint = Blueprint(
-    'index', __name__
+    'sensorflow_ui', __name__, url_prefix="/ui"
 )
 
 @index_blueprint.route("/", methods=['GET'])
 def index_get_index():
-    return jsonify({"Hello": "World"})
+    return "hola ahmigo"
 
 #
 # @index_blueprint.route("/read", methods=['GET'])
@@ -14,15 +14,8 @@ def index_get_index():
 #     kernel_intance = inject.instance(kernel.Kernel)
 #     return jsonify(kernel_intance.sensorflow.sensor_read())
 
-class RestApiBundle(object):
+class WebUiBundle(object):
     def __init__(self):
-        self.config_mapping = {
-            "rest_api": {
-                "use_debugger": True,
-                "port": 3003
-
-            }
-        }
 
         self.blueprints = [index_blueprint]
 

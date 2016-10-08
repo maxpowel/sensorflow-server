@@ -12,15 +12,19 @@ class EntityManager(object):
     @inject.params(configuration=Configuration)
     def __init__(self, configuration):
         config = configuration.entity_manager
-        uri = "{driver}://{username}{password}@{host}/{database}?charset=utf8".format(
-            driver=config.driver,
-            username=config.username,
-            password=":"+str(config.password) if config.password is not None else "",
-            host=config.hostname,
-            database=config.database
-        )
+        if config.driver.startswith("sqlite"):
+            engine = create_engine(config.driver, echo=config.debug)
+        else:
+            uri = "{driver}://{username}{password}@{host}/{database}?charset=utf8".format(
+                driver=config.driver,
+                username=config.username,
+                password=":"+str(config.password) if config.password is not None else "",
+                host=config.hostname,
+                database=config.database
+            )
 
-        engine = create_engine(uri, echo=config.debug, pool_recycle=60)
+            engine = create_engine(uri, echo=config.debug, pool_recycle=60)
+
         self.engine = engine
 
         session_factory = sessionmaker(bind=engine, autocommit=False, autoflush=False)

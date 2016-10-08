@@ -38,7 +38,6 @@ class Kernel(metaclass=ABCMeta):
         self.configure_logger(environment=environment)
         self.logger.info("Kernel started")
 
-
     def configure_logger(self, environment):
         # Get root logger
         self.logger = logging.getLogger(self.__class__.__name__)
